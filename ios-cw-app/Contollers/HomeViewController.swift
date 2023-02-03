@@ -10,6 +10,11 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    private let homeDescription: UITextView = {
+        let textView = UITextView()
+        return textView
+    }()
+    
     private let homeFeedTable: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
@@ -26,6 +31,12 @@ class HomeViewController: UIViewController {
         
         let headerView = HomeMainImageUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeFeedTable.tableHeaderView = headerView
+        configNavBar()
+    }
+    
+    private func configNavBar() {
+        let logo = UIImage(named: "homeMainImage")?.withRenderingMode(.alwaysOriginal)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: logo, style: .done, target: self, action: nil)
     }
     
     override func viewDidLayoutSubviews() {

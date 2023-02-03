@@ -10,8 +10,12 @@
 		D644372D2984E9440038A887 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D644372C2984E9440038A887 /* HomeViewController.swift */; };
 		D644372F2984E9890038A887 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D644372E2984E9890038A887 /* FoodDetailViewController.swift */; };
 		D64437312984E99D0038A887 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64437302984E99D0038A887 /* WishlistViewController.swift */; };
+		D6A23A09298D99B300EFAD8D /* Acme-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6A23A08298D99B300EFAD8D /* Acme-Regular.ttf */; };
 		D6CBE8A42985ABAA0066866D /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CBE8A32985ABAA0066866D /* CollectionViewTableViewCell.swift */; };
 		D6CBE8A62985B3640066866D /* HomeMainImageUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CBE8A52985B3640066866D /* HomeMainImageUIView.swift */; };
+		D6D1832A298C21AF000F9D80 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6D18327298C21AF000F9D80 /* Poppins-Regular.ttf */; };
+		D6D1832B298C21AF000F9D80 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6D18328298C21AF000F9D80 /* Poppins-ExtraLight.ttf */; };
+		D6D1832C298C21AF000F9D80 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6D18329298C21AF000F9D80 /* Poppins-Bold.ttf */; };
 		D6F38C78298445FB0067E13F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F38C77298445FB0067E13F /* AppDelegate.swift */; };
 		D6F38C7A298445FB0067E13F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F38C79298445FB0067E13F /* SceneDelegate.swift */; };
 		D6F38C7C298445FB0067E13F /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F38C7B298445FB0067E13F /* MainTabBarViewController.swift */; };
@@ -23,8 +27,12 @@
 		D644372C2984E9440038A887 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D644372E2984E9890038A887 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 		D64437302984E99D0038A887 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
+		D6A23A08298D99B300EFAD8D /* Acme-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acme-Regular.ttf"; sourceTree = "<group>"; };
 		D6CBE8A32985ABAA0066866D /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		D6CBE8A52985B3640066866D /* HomeMainImageUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainImageUIView.swift; sourceTree = "<group>"; };
+		D6D18327298C21AF000F9D80 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		D6D18328298C21AF000F9D80 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
+		D6D18329298C21AF000F9D80 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		D6F38C74298445FB0067E13F /* ios-cw-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-cw-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6F38C77298445FB0067E13F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6F38C79298445FB0067E13F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +61,25 @@
 				D64437302984E99D0038A887 /* WishlistViewController.swift */,
 			);
 			path = Contollers;
+			sourceTree = "<group>";
+		};
+		D64623F7298B9BC400FBE61D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D64623F8298B9BD600FBE61D /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D64623F8298B9BD600FBE61D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D6A23A08298D99B300EFAD8D /* Acme-Regular.ttf */,
+				D6D18329298C21AF000F9D80 /* Poppins-Bold.ttf */,
+				D6D18328298C21AF000F9D80 /* Poppins-ExtraLight.ttf */,
+				D6D18327298C21AF000F9D80 /* Poppins-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		D6CBE8A02985A9C90066866D /* Models */ = {
@@ -97,6 +124,7 @@
 		D6F38C76298445FB0067E13F /* ios-cw-app */ = {
 			isa = PBXGroup;
 			children = (
+				D64623F7298B9BC400FBE61D /* Resources */,
 				D6CBE8A02985A9C90066866D /* Models */,
 				D6CBE8A12985A9D30066866D /* Views */,
 				D6CBE8A22985A9E70066866D /* ViewModels */,
@@ -169,6 +197,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6D1832B298C21AF000F9D80 /* Poppins-ExtraLight.ttf in Resources */,
+				D6A23A09298D99B300EFAD8D /* Acme-Regular.ttf in Resources */,
+				D6D1832A298C21AF000F9D80 /* Poppins-Regular.ttf in Resources */,
+				D6D1832C298C21AF000F9D80 /* Poppins-Bold.ttf in Resources */,
 				D6F38C84298445FF0067E13F /* LaunchScreen.storyboard in Resources */,
 				D6F38C81298445FF0067E13F /* Assets.xcassets in Resources */,
 			);
