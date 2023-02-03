@@ -35,8 +35,11 @@ class HomeViewController: UIViewController {
     }
     
     private func configNavBar() {
-        let logo = UIImage(named: "homeMainImage")?.withRenderingMode(.alwaysOriginal)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: logo, style: .done, target: self, action: nil)
+        let userButton = UIBarButtonItem(image: UIImage(systemName: "person.fill"), style: .done, target: self, action: nil)
+        let wishlistButton = UIBarButtonItem(image: UIImage(systemName: "heart.fill"), style: .done, target: self, action: nil)
+        userButton.tintColor = .black
+        wishlistButton.tintColor = .black
+        navigationItem.rightBarButtonItems = [userButton, wishlistButton]
     }
     
     override func viewDidLayoutSubviews() {
