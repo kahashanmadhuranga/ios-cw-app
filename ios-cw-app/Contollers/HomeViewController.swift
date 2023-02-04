@@ -8,7 +8,14 @@
 
 import UIKit
 
+enum Sections: Int {
+    case TopFood = 0
+    case AllFood = 1
+}
+
 class HomeViewController: UIViewController {
+    
+    private let sectionHeaders = ["Top Foods", "Breakfast"]
     
     private let homeDescription: UITextView = {
         let textView = UITextView()
@@ -17,6 +24,7 @@ class HomeViewController: UIViewController {
     
     private let homeFeedTable: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
+        table.backgroundColor = .black
         table.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
         return table
     }()
@@ -37,9 +45,10 @@ class HomeViewController: UIViewController {
     private func configNavBar() {
         let userButton = UIBarButtonItem(image: UIImage(systemName: "person.fill"), style: .done, target: self, action: nil)
         let wishlistButton = UIBarButtonItem(image: UIImage(systemName: "heart.fill"), style: .done, target: self, action: nil)
-        userButton.tintColor = .black
-        wishlistButton.tintColor = .black
+        
         navigationItem.rightBarButtonItems = [userButton, wishlistButton]
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.barTintColor = .clear
     }
     
     override func viewDidLayoutSubviews() {
@@ -52,7 +61,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return sectionHeaders.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,7 +72,43 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {
             return UITableViewCell()
         }
+        
+        switch indexPath.section {
+        case Sections.TopFood.rawValue:
+            APICaller.shared.getTopFoods{ result in
+                switch result {
+                case .success(let food):
+                    cell.configure(with: food)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        case Sections.AllFood.rawValue:
+            APICaller.shared.getAllFoods{ result in
+                switch result {
+                case .success(let food):
+                    cell.configure(with: food)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        default:
+            return UITableViewCell()
+        }
+        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionHeaders[section]
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else {return}
+        header.textLabel?.font = UIFont(name: "Acme-Regular", size: 25)
+        header.textLabel?.textColor = .white
+        header.textLabel?.textAlignment = .center
+        header.textLabel?.text = header.textLabel?.text?.capitalizedFirstLetter()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

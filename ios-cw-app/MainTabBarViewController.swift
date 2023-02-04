@@ -19,14 +19,19 @@ class MainTabBarViewController: UITabBarController {
         let wishlistController = UINavigationController(rootViewController: WishlistViewController())
         
         homeController.tabBarItem.image = UIImage(systemName: "house")
-        foodDetailsController.tabBarItem.image = UIImage(systemName: "icloud.and.arrow.down.fill")
+        foodDetailsController.tabBarItem.image = UIImage(systemName: "magnifyingglass")
         wishlistController.tabBarItem.image = UIImage(systemName: "gear")
         
         homeController.title = "Home"
-        foodDetailsController.title = "Food"
-        wishlistController.title = "Wishlist"
+        foodDetailsController.title = "Search"
+        wishlistController.title = "Settings"
         
         tabBar.tintColor = .label
+        
+        UITabBar.appearance().barTintColor = .clear
+        UITabBar.appearance().tintColor = .white
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Acme-Regular", size: 12) as Any], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Acme-Regular", size: 12) as Any], for: .selected)
         
         setViewControllers([homeController, foodDetailsController, wishlistController], animated: true)
     }
