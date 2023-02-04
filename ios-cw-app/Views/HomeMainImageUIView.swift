@@ -10,7 +10,13 @@ import UIKit
 
 class HomeMainImageUIView: UIView {
     
-    private var sliderImgs = [UIImage(named: "sliderImg1"), UIImage(named: "sliderImg2"), UIImage(named: "sliderImg3")]
+    private var sliderImgs = [
+        UIImage(named: "sliderImg1"),
+        UIImage(named: "sliderImg2"),
+        UIImage(named: "sliderImg3"),
+        UIImage(named: "sliderImg4"),
+        UIImage(named: "sliderImg5")
+    ]
     private var currentSlideIndex = 0;
     
     private let mainImage: UIImageView = {
@@ -88,8 +94,6 @@ class HomeMainImageUIView: UIView {
     required init?(coder: NSCoder) {
         fatalError()
     }
-
-     
 
     @objc func sayHello(){
         if (currentSlideIndex < sliderImgs.count - 1) {

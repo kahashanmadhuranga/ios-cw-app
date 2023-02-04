@@ -15,7 +15,7 @@ enum Sections: Int {
 
 class HomeViewController: UIViewController {
     
-    private let sectionHeaders = ["Top Foods", "Breakfast"]
+    private let sectionHeaders = ["Top Foods", "All Foods"]
     
     private let homeDescription: UITextView = {
         let textView = UITextView()
@@ -72,7 +72,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {
             return UITableViewCell()
         }
-        
         switch indexPath.section {
         case Sections.TopFood.rawValue:
             APICaller.shared.getTopFoods{ result in
@@ -95,7 +94,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             return UITableViewCell()
         }
-        
         return cell
     }
     

@@ -12,4 +12,11 @@ extension String {
     func capitalizedFirstLetter() -> String {
         return self.prefix(1).uppercased() + self.lowercased().dropFirst()
     }
+    func truncate(length: Int) -> String {
+        if(self.count > length){
+            return self.prefix(upTo: self.index(self.startIndex, offsetBy: length)) + "..."
+        }else{
+            return self
+        }
+    }
 }

@@ -13,13 +13,14 @@ class CollectionViewTableViewCell: UITableViewCell {
     static let identifier = "CollectionViewTableViewCell"
     
     private var foods: [Food] = [Food]()
-    
+
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 140, height: 200)
+        layout.itemSize = CGSize(width: 150, height: 200)
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(FoodCollectionViewCell.self, forCellWithReuseIdentifier: FoodCollectionViewCell.identifier)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
     
@@ -53,12 +54,11 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FoodCollectionViewCell.identifier, for: indexPath) as? FoodCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.configure(with: foods[indexPath.row].imageUrl)
+        cell.configure(with: foods[indexPath.row])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(foods.count)
         return foods.count
     }
 }
