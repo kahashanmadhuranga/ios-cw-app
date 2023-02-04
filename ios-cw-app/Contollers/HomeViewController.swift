@@ -11,11 +11,12 @@ import UIKit
 enum Sections: Int {
     case TopFood = 0
     case AllFood = 1
+    case video = 2
 }
 
 class HomeViewController: UIViewController {
     
-    private let sectionHeaders = ["Top Foods", "All Foods"]
+    private let sectionHeaders = ["Top Foods", "All Foods", "Empty"]
     
     private let homeDescription: UITextView = {
         let textView = UITextView()
@@ -28,7 +29,7 @@ class HomeViewController: UIViewController {
         table.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
         return table
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -40,6 +41,7 @@ class HomeViewController: UIViewController {
         let headerView = HomeMainImageUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeFeedTable.tableHeaderView = headerView
         configNavBar()
+//        navigationController?.pushViewController(FoodDetailViewController(), animated: true)
     }
     
     private func configNavBar() {
@@ -55,7 +57,6 @@ class HomeViewController: UIViewController {
         super.viewDidLayoutSubviews()
         homeFeedTable.frame = view.bounds
     }
-
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -72,6 +73,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {
             return UITableViewCell()
         }
+        
+        cell.delegate = self
+        
         switch indexPath.section {
         case Sections.TopFood.rawValue:
             APICaller.shared.getTopFoods{ result in
@@ -91,6 +95,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                     print(error.localizedDescription)
                 }
             }
+        case Sections.video.rawValue:
+            print("Empty")
         default:
             return UITableViewCell()
         }
@@ -110,10 +116,23 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        if(indexPath.section == 2){
+            return 500
+        }else{
+            return 200
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
+    }
+}
+
+extension HomeViewController: collectionViewTableViewCellDelegate {
+    func collectionViewTableViewCellDelegate(_ cell: CollectionViewTableViewCell, viewModel: Food) {
+        let vc = FoodDetailViewController()
+        vc.delegate = self
+        vc.configure(with: viewModel)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

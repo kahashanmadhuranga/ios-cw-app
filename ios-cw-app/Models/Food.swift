@@ -12,5 +12,9 @@ struct Food: Codable {
     let _id: String
     let title: String
     let imageUrl: String
+    let mainImageUrl: String
     let description: String
+    let ingredients: String?
+    let nutritions: String?
+    let calories: String?
 }

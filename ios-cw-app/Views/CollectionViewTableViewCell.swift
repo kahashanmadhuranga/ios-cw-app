@@ -8,9 +8,15 @@
 
 import UIKit
 
+protocol collectionViewTableViewCellDelegate: AnyObject {
+    func collectionViewTableViewCellDelegate(_ cell: CollectionViewTableViewCell, viewModel: Food)
+}
+
 class CollectionViewTableViewCell: UITableViewCell {
 
     static let identifier = "CollectionViewTableViewCell"
+    
+    weak var delegate: collectionViewTableViewCellDelegate?
     
     private var foods: [Food] = [Food]()
 
@@ -60,5 +66,10 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return foods.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        delegate?.collectionViewTableViewCellDelegate(self, viewModel: foods[indexPath.row])
     }
 }
