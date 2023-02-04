@@ -20,6 +20,7 @@
 		D6CBE8A42985ABAA0066866D /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CBE8A32985ABAA0066866D /* CollectionViewTableViewCell.swift */; };
 		D6CBE8A62985B3640066866D /* HomeMainImageUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CBE8A52985B3640066866D /* HomeMainImageUIView.swift */; };
 		D6CEE9E9298EB82B00FAED1C /* FoodItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CEE9E8298EB82B00FAED1C /* FoodItemTableViewCell.swift */; };
+		D6CEE9EF298EE85000FAED1C /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CEE9EE298EE85000FAED1C /* SearchResultViewController.swift */; };
 		D6D1832A298C21AF000F9D80 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6D18327298C21AF000F9D80 /* Poppins-Regular.ttf */; };
 		D6D1832B298C21AF000F9D80 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6D18328298C21AF000F9D80 /* Poppins-ExtraLight.ttf */; };
 		D6D1832C298C21AF000F9D80 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6D18329298C21AF000F9D80 /* Poppins-Bold.ttf */; };
@@ -44,6 +45,7 @@
 		D6CBE8A32985ABAA0066866D /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		D6CBE8A52985B3640066866D /* HomeMainImageUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainImageUIView.swift; sourceTree = "<group>"; };
 		D6CEE9E8298EB82B00FAED1C /* FoodItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemTableViewCell.swift; sourceTree = "<group>"; };
+		D6CEE9EE298EE85000FAED1C /* SearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		D6D18327298C21AF000F9D80 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		D6D18328298C21AF000F9D80 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		D6D18329298C21AF000F9D80 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 		D644372B2984E91E0038A887 /* Contollers */ = {
 			isa = PBXGroup;
 			children = (
+				D6CEE9EE298EE85000FAED1C /* SearchResultViewController.swift */,
 				D644372C2984E9440038A887 /* HomeViewController.swift */,
 				D644372E2984E9890038A887 /* FoodDetailViewController.swift */,
 				D64437302984E99D0038A887 /* WishlistViewController.swift */,
@@ -102,12 +105,12 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		D6A23A0C298DCF5A00EFAD8D /* Managers */ = {
+		D6A23A0C298DCF5A00EFAD8D /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				D6A23A0D298DCF7A00EFAD8D /* APICaller.swift */,
 			);
-			path = Managers;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		D6CBE8A02985A9C90066866D /* Models */ = {
@@ -127,13 +130,6 @@
 				D6CEE9E8298EB82B00FAED1C /* FoodItemTableViewCell.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		D6CBE8A22985A9E70066866D /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		D6F38C6B298445FB0067E13F = {
@@ -156,11 +152,10 @@
 			isa = PBXGroup;
 			children = (
 				D6F809D2298E75750033F19E /* Config */,
-				D6A23A0C298DCF5A00EFAD8D /* Managers */,
+				D6A23A0C298DCF5A00EFAD8D /* Services */,
 				D64623F7298B9BC400FBE61D /* Resources */,
 				D6CBE8A02985A9C90066866D /* Models */,
 				D6CBE8A12985A9D30066866D /* Views */,
-				D6CBE8A22985A9E70066866D /* ViewModels */,
 				D644372B2984E91E0038A887 /* Contollers */,
 				D6F38C77298445FB0067E13F /* AppDelegate.swift */,
 				D6F38C79298445FB0067E13F /* SceneDelegate.swift */,
@@ -275,6 +270,7 @@
 				D6F809D4298E75940033F19E /* Constant.swift in Sources */,
 				D6CBE8A62985B3640066866D /* HomeMainImageUIView.swift in Sources */,
 				D6A23A12298DDB9A00EFAD8D /* FoodCollectionViewCell.swift in Sources */,
+				D6CEE9EF298EE85000FAED1C /* SearchResultViewController.swift in Sources */,
 				D644372D2984E9440038A887 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

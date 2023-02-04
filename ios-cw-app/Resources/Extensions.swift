@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension String {
     func capitalizedFirstLetter() -> String {
@@ -19,4 +20,8 @@ extension String {
             return self
         }
     }
+}
+
+extension UIColor {
+    static let customWhite = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.00)
 }

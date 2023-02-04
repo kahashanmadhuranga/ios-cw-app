@@ -20,6 +20,18 @@ class FoodListViewController: UIViewController {
         return table
     }()
     
+    private let searchController: UISearchController = {
+        let controller = UISearchController(searchResultsController: SearchResultViewController())
+        controller.searchBar.placeholder = "Search food here"
+        controller.searchBar.searchBarStyle = .minimal
+        controller.searchBar.barTintColor = .white
+        let searchLabel = UILabel.appearance(whenContainedInInstancesOf: [UISearchBar.self])
+        let searchTextField = UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self])
+        searchLabel.font = UIFont(name: "Acme-Regular", size: 15)
+        searchTextField.font = UIFont(name: "Acme-Regular", size: 15)
+        return controller
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +41,8 @@ class FoodListViewController: UIViewController {
         
         navbarConfig()
         fetchData()
+        
+        searchController.searchResultsUpdater = self
     }
     
     private func navbarConfig(){
@@ -40,6 +54,7 @@ class FoodListViewController: UIViewController {
             NSAttributedString.Key.font:UIFont(name: "Acme-Regular", size: 20)
         ]
         navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
+        navigationItem.searchController = searchController
     }
     
     override func viewDidLayoutSubviews() {
@@ -77,5 +92,33 @@ extension FoodListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
+    }
+}
+
+extension FoodListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        print("calling")
+        
+        guard let query = searchBar.text,
+            !query.trimmingCharacters(in: .whitespaces).isEmpty,
+            query.trimmingCharacters(in: .whitespaces).count > 3,
+            let resultsController = searchController.searchResultsController as? SearchResultViewController else {
+                return
+        }
+        
+        APICaller.shared.searchFood(with: query){ result in
+            DispatchQueue.main.async {
+                switch result{
+                case .success(let foods):
+                    resultsController.foods = foods
+                    resultsController.foodListTable.reloadData()
+                case .failure(let error):
+                    resultsController.foods = []
+                    resultsController.foodListTable.reloadData()
+                    print(error.localizedDescription)
+                }
+            }
+        }
     }
 }
