@@ -25,8 +25,8 @@ class FoodCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.text = "Title"
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor.lightText
-        label.font = UIFont(name: "Acme-Regular", size: 18)
+        label.textColor = UIColor.white
+        label.font = UIFont(name: "Acme-Regular", size: 15)
         label.numberOfLines = 0
         label.textAlignment = .center;
         return label
@@ -80,7 +80,7 @@ class FoodCollectionViewCell: UICollectionViewCell {
     }
     
     public func configure(with model: Food){
-        guard let url = URL(string: model.imageUrl) else {return}
+        guard let url = URL(string: Constants.imageBaseUrl + model.imageUrl) else {return}
         imageView.sd_setImage(with: url, completed: nil)
         title.text = model.title.truncate(length: 15)
     }

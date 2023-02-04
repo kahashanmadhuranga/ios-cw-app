@@ -12,4 +12,5 @@ struct Food: Codable {
     let _id: String
     let title: String
     let imageUrl: String
+    let description: String
 }

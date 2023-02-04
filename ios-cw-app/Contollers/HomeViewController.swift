@@ -103,8 +103,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else {return}
-        header.textLabel?.font = UIFont(name: "Acme-Regular", size: 25)
-        header.textLabel?.textColor = .white
+        header.textLabel?.font = UIFont(name: "Acme-Regular", size: 20)
+        header.textLabel?.textColor = .lightGray
         header.textLabel?.textAlignment = .center
         header.textLabel?.text = header.textLabel?.text?.capitalizedFirstLetter()
     }

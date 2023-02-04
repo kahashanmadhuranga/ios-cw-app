@@ -8,10 +8,6 @@
 
 import Foundation
 
-struct Constants {
-    static let baseUrl = "https://465d-2402-d000-8108-12b5-853f-d5f9-6ead-65b2.in.ngrok.io/"
-}
-
 enum APIError: Error {
     case failedTogetData
 }

@@ -15,7 +15,7 @@ class MainTabBarViewController: UITabBarController {
         self.view.backgroundColor = .systemYellow
         
         let homeController = UINavigationController(rootViewController: HomeViewController())
-        let foodDetailsController = UINavigationController(rootViewController: FoodDetailViewController())
+        let foodDetailsController = UINavigationController(rootViewController: FoodListViewController())
         let wishlistController = UINavigationController(rootViewController: WishlistViewController())
         
         homeController.tabBarItem.image = UIImage(systemName: "house")

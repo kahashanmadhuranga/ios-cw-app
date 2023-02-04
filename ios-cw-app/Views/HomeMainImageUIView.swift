@@ -14,8 +14,8 @@ class HomeMainImageUIView: UIView {
         UIImage(named: "sliderImg1"),
         UIImage(named: "sliderImg2"),
         UIImage(named: "sliderImg3"),
-        UIImage(named: "sliderImg4"),
-        UIImage(named: "sliderImg5")
+//        UIImage(named: "sliderImg4"),
+//        UIImage(named: "sliderImg5")
     ]
     private var currentSlideIndex = 0;
     
