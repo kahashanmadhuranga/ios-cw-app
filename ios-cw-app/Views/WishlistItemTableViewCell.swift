@@ -64,7 +64,7 @@ class WishlistItemTableViewCell: UITableViewCell {
     
     private func applyConstraints(){
         let foodImageConstraints = [
-            foodImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            foodImage.leadingAnchor.constraint(equalTo: deleteButton.trailingAnchor, constant: 10),
             foodImage.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             foodImage.widthAnchor.constraint(equalToConstant: 130),
             foodImage.heightAnchor.constraint(equalToConstant: 130)
@@ -83,8 +83,8 @@ class WishlistItemTableViewCell: UITableViewCell {
         ]
         
         let deleteButtonConstraints = [
-            deleteButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            deleteButton.topAnchor.constraint(equalTo: foodDescription.bottomAnchor, constant: 10)
+            deleteButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            deleteButton.centerYAnchor.constraint(equalTo: centerYAnchor)
         ]
         
         NSLayoutConstraint.activate(foodImageConstraints)

@@ -16,7 +16,7 @@ enum Sections: Int {
 
 class HomeViewController: UIViewController {
     
-    private let sectionHeaders = ["Top Foods", "All Foods", "Home Page Text Content Here"]
+    private let sectionHeaders = ["Top Foods", "All Foods"]
     
     private let homeDescription: UITextView = {
         let textView = UITextView()

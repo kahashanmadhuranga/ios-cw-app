@@ -10,6 +10,24 @@ import UIKit
 
 class RegisterUIView: UIView {
     
+    private let mainImage: UIImageView = {
+        let image = UIImageView()
+        image.contentMode = .scaleAspectFill
+        image.clipsToBounds = true
+        return image
+    }()
+    
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = UIColor.white
+        label.text = "Register"
+        label.font = UIFont(name: "Acme-Regular", size: 30)
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        return label
+    }()
+    
     private let logo: UIImageView = {
         let image = UIImageView()
         image.clipsToBounds = true
@@ -103,7 +121,8 @@ class RegisterUIView: UIView {
     private let LoginButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = UIColor.customGreen
-        button.setTitle("Login", for: .normal)
+        button.setTitle("Register", for: .normal)
+        button.titleLabel?.font =  UIFont(name: "Acme-Regular", size: 18)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 5
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -115,18 +134,18 @@ class RegisterUIView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.white
-        label.text = "Already have an account? logn"
+        label.text = "Already have an account? login"
         label.font = UIFont(name: "Acme-Regular", size: 15)
         label.numberOfLines = 0
         label.textAlignment = .center
         
         return label
     }()
-    
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(logo)
+        addSubview(titleLabel)
         addSubview(emailLabel)
         addSubview(emailField)
         addSubview(nameLabel)
@@ -152,8 +171,14 @@ class RegisterUIView: UIView {
             logo.centerXAnchor.constraint(equalTo: centerXAnchor)
         ]
         
+        let titleLabelConstraints = [
+            titleLabel.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 20),
+            titleLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
+            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ]
+        
         let nameLabelConstraints = [
-            nameLabel.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 20),
+            nameLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
             nameLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
             nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
         ]
@@ -205,6 +230,7 @@ class RegisterUIView: UIView {
         ]
         
         NSLayoutConstraint.activate(logoConstraints)
+        NSLayoutConstraint.activate(titleLabelConstraints)
         NSLayoutConstraint.activate(nameLabelConstraints)
         NSLayoutConstraint.activate(nameFieldConstraints)
         NSLayoutConstraint.activate(emailLabelConstraints)

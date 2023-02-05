@@ -9,6 +9,7 @@
 import Foundation
 
 struct Constants {
-    static let baseUrl = "https://2e38-2402-d000-8108-12b5-9429-e78d-34b-9bc3.in.ngrok.io/"
+    static let baseUrl = "https://8f39-2402-d000-8108-12b5-d503-5394-d63e-4eff.in.ngrok.io/"
     static let imageBaseUrl = "https://ios-cw-app.s3.amazonaws.com/"
 }
+

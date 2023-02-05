@@ -24,7 +24,7 @@ class MainTabBarViewController: UITabBarController {
         
         homeController.title = "Home"
         foodDetailsController.title = "Search"
-        wishlistController.title = "Settings"
+        wishlistController.title = "Wishlist"
         
         tabBar.tintColor = .label
         

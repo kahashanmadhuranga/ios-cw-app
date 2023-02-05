@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 import SDWebImage
 
 class FoodCollectionViewCell: UICollectionViewCell {
@@ -85,3 +86,4 @@ class FoodCollectionViewCell: UICollectionViewCell {
         title.text = model.title.truncate(length: 15)
     }
 }
+

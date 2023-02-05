@@ -18,6 +18,17 @@ class LoginUIView: UIView {
         return image
     }()
     
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = UIColor.white
+        label.text = "Login"
+        label.font = UIFont(name: "Acme-Regular", size: 30)
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        return label
+    }()
+    
     private let emailLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -77,6 +88,7 @@ class LoginUIView: UIView {
         let button = UIButton()
         button.backgroundColor = UIColor.customGreen
         button.setTitle("Login", for: .normal)
+        button.titleLabel?.font =  UIFont(name: "Acme-Regular", size: 18)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 5
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -94,11 +106,11 @@ class LoginUIView: UIView {
         label.textAlignment = .center
         return label
     }()
-    
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(logo)
+        addSubview(titleLabel)
         addSubview(emailLabel)
         addSubview(emailField)
         addSubview(passwordLabel)
@@ -121,8 +133,14 @@ class LoginUIView: UIView {
             logo.centerXAnchor.constraint(equalTo: centerXAnchor)
         ]
         
+        let titleLabelConstraints = [
+            titleLabel.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 20),
+            titleLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
+            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ]
+        
         let emailLabelConstraints = [
-            emailLabel.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 20),
+            emailLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
             emailLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
             emailLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
         ]
@@ -160,8 +178,8 @@ class LoginUIView: UIView {
             registerLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
         ]
         
-        
         NSLayoutConstraint.activate(logoConstraints)
+        NSLayoutConstraint.activate(titleLabelConstraints)
         NSLayoutConstraint.activate(emailLabelConstraints)
         NSLayoutConstraint.activate(emailFieldConstraints)
         NSLayoutConstraint.activate(passwordLabelConstraints)
