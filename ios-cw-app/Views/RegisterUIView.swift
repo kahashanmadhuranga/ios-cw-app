@@ -1,5 +1,5 @@
 //
-//  LoginUIView.swift
+//  RegisterUIView.swift
 //  ios-cw-app
 //
 //  Created by Hashan on 2/5/23.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginUIView: UIView {
+class RegisterUIView: UIView {
     
     private let logo: UIImageView = {
         let image = UIImageView()
@@ -16,6 +16,33 @@ class LoginUIView: UIView {
         image.image = UIImage(named: "logo")
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
+    }()
+    
+    private let nameLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = UIColor.white
+        label.text = "Full Name"
+        label.font = UIFont(name: "Acme-Regular", size: 18)
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    private let nameField: UITextField = {
+        let textField = UITextField()
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "Enter full name here",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
+        )
+        textField.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 0)
+        textField.textColor = .white
+        textField.backgroundColor = .clear
+        textField.layer.borderColor = UIColor.white.cgColor
+        textField.layer.borderWidth = 1.0
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.font = UIFont(name: "Acme-Regular", size: 18)
+        textField.layer.cornerRadius = 5
+        return textField
     }()
     
     private let emailLabel: UILabel = {
@@ -80,18 +107,19 @@ class LoginUIView: UIView {
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 5
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(login), for: .touchUpInside)
+        button.addTarget(self, action: #selector(register), for: .touchUpInside)
         return button
     }()
     
-    private let registerLabel: UILabel = {
+    private let loginLable: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.white
-        label.text = "No account? Register"
+        label.text = "Already have an account? logn"
         label.font = UIFont(name: "Acme-Regular", size: 15)
         label.numberOfLines = 0
         label.textAlignment = .center
+        
         return label
     }()
     
@@ -101,19 +129,22 @@ class LoginUIView: UIView {
         addSubview(logo)
         addSubview(emailLabel)
         addSubview(emailField)
+        addSubview(nameLabel)
+        addSubview(nameField)
         addSubview(passwordLabel)
         addSubview(passwordField)
         addSubview(LoginButton)
-        addSubview(registerLabel)
+        addSubview(loginLable)
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(LoginUIView.navigateToLogin))
-        registerLabel.isUserInteractionEnabled = true
-        registerLabel.addGestureRecognizer(tap)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(RegisterUIView.navigateToLogin))
+        loginLable.isUserInteractionEnabled = true
+        loginLable.addGestureRecognizer(tap)
         
         applyConstraints()
     }
     
     private func applyConstraints(){
+        
         let logoConstraints = [
             logo.topAnchor.constraint(equalTo: topAnchor, constant: 60),
             logo.widthAnchor.constraint(equalToConstant: 130),
@@ -121,8 +152,21 @@ class LoginUIView: UIView {
             logo.centerXAnchor.constraint(equalTo: centerXAnchor)
         ]
         
+        let nameLabelConstraints = [
+            nameLabel.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 20),
+            nameLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
+            nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ]
+        
+        let nameFieldConstraints = [
+            nameField.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10),
+            nameField.widthAnchor.constraint(equalTo: widthAnchor, multiplier:  0.8),
+            nameField.heightAnchor.constraint(equalToConstant: 50),
+            nameField.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ]
+        
         let emailLabelConstraints = [
-            emailLabel.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 20),
+            emailLabel.topAnchor.constraint(equalTo: nameField.bottomAnchor, constant: 20),
             emailLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
             emailLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
         ]
@@ -154,20 +198,21 @@ class LoginUIView: UIView {
             LoginButton.centerXAnchor.constraint(equalTo: centerXAnchor)
         ]
         
-        let registerLabelConstraints = [
-            registerLabel.topAnchor.constraint(equalTo: LoginButton.bottomAnchor, constant: 20),
-            registerLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier:  0.8),
-            registerLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
+        let loginLableConstraints = [
+            loginLable.topAnchor.constraint(equalTo: LoginButton.bottomAnchor, constant: 20),
+            loginLable.widthAnchor.constraint(equalTo: widthAnchor, multiplier:  0.8),
+            loginLable.centerXAnchor.constraint(equalTo: centerXAnchor)
         ]
         
-        
         NSLayoutConstraint.activate(logoConstraints)
+        NSLayoutConstraint.activate(nameLabelConstraints)
+        NSLayoutConstraint.activate(nameFieldConstraints)
         NSLayoutConstraint.activate(emailLabelConstraints)
         NSLayoutConstraint.activate(emailFieldConstraints)
         NSLayoutConstraint.activate(passwordLabelConstraints)
         NSLayoutConstraint.activate(passwordFieldConstraints)
         NSLayoutConstraint.activate(LoginButtonConstraints)
-        NSLayoutConstraint.activate(registerLabelConstraints)
+        NSLayoutConstraint.activate(loginLableConstraints)
     }
     
     required init?(coder: NSCoder) {
@@ -179,12 +224,11 @@ class LoginUIView: UIView {
         self.frame = bounds
     }
     
-    @objc func login(){
-        print("Login & navigate to home")
+    @objc func register(){
+        print("Register & navigate to login")
     }
     
     @objc func navigateToLogin(){
-        print("Navigate to register screen")
+        print("Navigate to login screen")
     }
-
 }

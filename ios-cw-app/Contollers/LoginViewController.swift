@@ -15,23 +15,5 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(loginView)
-        
-        applyConstraints()
     }
-    
-    private func applyConstraints(){
-        let loginViewConstraints = [
-            loginView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-//            loginView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/5*4)
-        ]
-        
-        NSLayoutConstraint.activate(loginViewConstraints)
-    }
-    
-    @objc func login(){
-        print("----btn click----")
-        let vc = MainTabBarViewController()
-    }
-
 }
