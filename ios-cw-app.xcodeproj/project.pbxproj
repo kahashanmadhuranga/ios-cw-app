@@ -10,6 +10,9 @@
 		D644372D2984E9440038A887 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D644372C2984E9440038A887 /* HomeViewController.swift */; };
 		D644372F2984E9890038A887 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D644372E2984E9890038A887 /* FoodDetailViewController.swift */; };
 		D64437312984E99D0038A887 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64437302984E99D0038A887 /* WishlistViewController.swift */; };
+		D68A456E298FC59700238155 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68A456D298FC59700238155 /* RegisterViewController.swift */; };
+		D68A4570298FC5B500238155 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68A456F298FC5B500238155 /* LoginViewController.swift */; };
+		D68A4572298FC64200238155 /* LoginUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68A4571298FC64200238155 /* LoginUIView.swift */; };
 		D6A23A09298D99B300EFAD8D /* Acme-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6A23A08298D99B300EFAD8D /* Acme-Regular.ttf */; };
 		D6A23A0B298DC63100EFAD8D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A23A0A298DC63100EFAD8D /* Extensions.swift */; };
 		D6A23A0E298DCF7A00EFAD8D /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A23A0D298DCF7A00EFAD8D /* APICaller.swift */; };
@@ -38,6 +41,9 @@
 		D644372C2984E9440038A887 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D644372E2984E9890038A887 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 		D64437302984E99D0038A887 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
+		D68A456D298FC59700238155 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		D68A456F298FC5B500238155 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D68A4571298FC64200238155 /* LoginUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUIView.swift; sourceTree = "<group>"; };
 		D6A23A08298D99B300EFAD8D /* Acme-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acme-Regular.ttf"; sourceTree = "<group>"; };
 		D6A23A0A298DC63100EFAD8D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D6A23A0D298DCF7A00EFAD8D /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
@@ -83,6 +89,8 @@
 				D644372E2984E9890038A887 /* FoodDetailViewController.swift */,
 				D64437302984E99D0038A887 /* WishlistViewController.swift */,
 				D6F809D5298E77970033F19E /* FoodListViewController.swift */,
+				D68A456D298FC59700238155 /* RegisterViewController.swift */,
+				D68A456F298FC5B500238155 /* LoginViewController.swift */,
 			);
 			path = Contollers;
 			sourceTree = "<group>";
@@ -131,6 +139,7 @@
 				D6A23A11298DDB9A00EFAD8D /* FoodCollectionViewCell.swift */,
 				D6CEE9E8298EB82B00FAED1C /* FoodItemTableViewCell.swift */,
 				D6D7708C298F290600A391DF /* WishlistItemTableViewCell.swift */,
+				D68A4571298FC64200238155 /* LoginUIView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -263,11 +272,14 @@
 				D6A23A10298DD23100EFAD8D /* Food.swift in Sources */,
 				D6F38C7C298445FB0067E13F /* MainTabBarViewController.swift in Sources */,
 				D6A23A0B298DC63100EFAD8D /* Extensions.swift in Sources */,
+				D68A4570298FC5B500238155 /* LoginViewController.swift in Sources */,
 				D64437312984E99D0038A887 /* WishlistViewController.swift in Sources */,
 				D6A23A0E298DCF7A00EFAD8D /* APICaller.swift in Sources */,
 				D6F38C78298445FB0067E13F /* AppDelegate.swift in Sources */,
 				D6D7708D298F290600A391DF /* WishlistItemTableViewCell.swift in Sources */,
 				D6CBE8A42985ABAA0066866D /* CollectionViewTableViewCell.swift in Sources */,
+				D68A4572298FC64200238155 /* LoginUIView.swift in Sources */,
+				D68A456E298FC59700238155 /* RegisterViewController.swift in Sources */,
 				D6F38C7A298445FB0067E13F /* SceneDelegate.swift in Sources */,
 				D6F809D6298E77970033F19E /* FoodListViewController.swift in Sources */,
 				D644372F2984E9890038A887 /* FoodDetailViewController.swift in Sources */,

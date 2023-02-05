@@ -24,4 +24,6 @@ extension String {
 
 extension UIColor {
     static let customWhite = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.00)
+    static let customGreen = UIColor(red: 81/255, green: 129/255, blue: 69/255, alpha: 1/00)
 }
+

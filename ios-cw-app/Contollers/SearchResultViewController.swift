@@ -55,6 +55,6 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
         let vc1 = FoodDetailViewController()
         vc1.configure(with: foods[indexPath.row])
         navigationController?.pushViewController(vc1, animated: true)
-        print("clicked - 1")
     }
 }
+
