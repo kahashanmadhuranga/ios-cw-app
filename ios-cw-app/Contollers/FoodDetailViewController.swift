@@ -21,6 +21,15 @@ class FoodDetailViewController: UIViewController {
         return imageView
     }()
     
+    private let wishlistButton: UIButton = {
+        let button = UIButton()
+        let largeConfig = UIImage.SymbolConfiguration(pointSize: 20, weight: .bold, scale: .medium)
+        button.setImage(UIImage(systemName: "heart", withConfiguration: largeConfig), for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.tintColor = UIColor.red
+        return button
+    }()
+    
     private let foodTitle: UILabel = {
         let label = UILabel()
         label.text = "Food Title"
@@ -28,7 +37,6 @@ class FoodDetailViewController: UIViewController {
         label.textColor = UIColor.white
         label.font = UIFont(name: "Acme-Regular", size: 20)
         label.numberOfLines = 0
-        label.textAlignment = .center;
         return label
     }()
     
@@ -107,6 +115,7 @@ class FoodDetailViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .black
         view.addSubview(foodImage)
+        view.addSubview(wishlistButton)
         view.addSubview(foodTitle)
         view.addSubview(foodDescription)
         view.addSubview(nutritionTitle)
@@ -124,11 +133,19 @@ class FoodDetailViewController: UIViewController {
             foodImage.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height/5*2),
             foodImage.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         ]
+        
+        let wishlistButtonConstraint = [
+//            wishlistButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.2),
+            wishlistButton.topAnchor.constraint(equalTo: foodImage.bottomAnchor, constant: 20),
+            wishlistButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+//            wishlistButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ]
 
         let foodTitleConstraint = [
-            foodTitle.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
+            foodTitle.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
             foodTitle.topAnchor.constraint(equalTo: foodImage.bottomAnchor, constant: 20),
-            foodTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+//            foodTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            foodTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
         ]
         
         let foodDescriptionConstraint = [
@@ -174,6 +191,7 @@ class FoodDetailViewController: UIViewController {
         ]
         
         NSLayoutConstraint.activate(foodImageConstraint)
+        NSLayoutConstraint.activate(wishlistButtonConstraint)
         NSLayoutConstraint.activate(foodTitleConstraint)
         NSLayoutConstraint.activate(foodDescriptionConstraint)
         NSLayoutConstraint.activate(nutritionTitleConstraint)

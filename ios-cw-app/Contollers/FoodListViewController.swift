@@ -93,12 +93,18 @@ extension FoodListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = FoodDetailViewController()
+        vc.configure(with: foods[indexPath.row])
+        navigationController?.pushViewController(vc, animated: true)
+        print("clicked")
+    }
 }
 
 extension FoodListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
-        print("calling")
         
         guard let query = searchBar.text,
             !query.trimmingCharacters(in: .whitespaces).isEmpty,

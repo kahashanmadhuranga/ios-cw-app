@@ -20,7 +20,7 @@ class MainTabBarViewController: UITabBarController {
         
         homeController.tabBarItem.image = UIImage(systemName: "house")
         foodDetailsController.tabBarItem.image = UIImage(systemName: "magnifyingglass")
-        wishlistController.tabBarItem.image = UIImage(systemName: "gear")
+        wishlistController.tabBarItem.image = UIImage(systemName: "heart")
         
         homeController.title = "Home"
         foodDetailsController.title = "Search"

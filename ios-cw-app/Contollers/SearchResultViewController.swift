@@ -50,4 +50,11 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc1 = FoodDetailViewController()
+        vc1.configure(with: foods[indexPath.row])
+        navigationController?.pushViewController(vc1, animated: true)
+        print("clicked - 1")
+    }
 }

@@ -16,7 +16,7 @@ enum Sections: Int {
 
 class HomeViewController: UIViewController {
     
-    private let sectionHeaders = ["Top Foods", "All Foods", "Empty"]
+    private let sectionHeaders = ["Top Foods", "All Foods", "Home Page Text Content Here"]
     
     private let homeDescription: UITextView = {
         let textView = UITextView()
@@ -41,16 +41,22 @@ class HomeViewController: UIViewController {
         let headerView = HomeMainImageUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeFeedTable.tableHeaderView = headerView
         configNavBar()
-//        navigationController?.pushViewController(FoodDetailViewController(), animated: true)
     }
     
     private func configNavBar() {
-        let userButton = UIBarButtonItem(image: UIImage(systemName: "person.fill"), style: .done, target: self, action: nil)
-        let wishlistButton = UIBarButtonItem(image: UIImage(systemName: "heart.fill"), style: .done, target: self, action: nil)
+        let userButton = UIBarButtonItem(image: UIImage(systemName: "person.circle.fill"), style: .done, target: self, action: nil)
+//        let wishlistButton = UIBarButtonItem(image: UIImage(systemName: "heart.fill"), style: .done, target: self, action: nil)
         
-        navigationItem.rightBarButtonItems = [userButton, wishlistButton]
+        navigationItem.rightBarButtonItems = [userButton]
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.barTintColor = .clear
+        
+        title = "Good Food"
+        let textAttributes = [
+            NSAttributedString.Key.foregroundColor:UIColor.white,
+            NSAttributedString.Key.font:UIFont(name: "Acme-Regular", size: 20)
+        ]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
     }
     
     override func viewDidLayoutSubviews() {
@@ -117,7 +123,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if(indexPath.section == 2){
-            return 500
+            return 100
         }else{
             return 200
         }
